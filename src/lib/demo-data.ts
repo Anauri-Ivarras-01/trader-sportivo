@@ -110,7 +110,7 @@ export function formatDate(d: Date) {
   return d.toLocaleDateString("pt-BR", { weekday: "short", day: "2-digit", month: "2-digit" });
 }
 
-export type Filters = { date?: string; country?: string; league?: string; team?: string; q?: string };
+export type Filters = { date?: string | undefined; country?: string | undefined; league?: string | undefined; team?: string | undefined; q?: string | undefined };
 export function filterMatches(list: Match[], f: Filters) {
   const q = f.q?.trim().toLowerCase();
   return list.filter((m) => {

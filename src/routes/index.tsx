@@ -6,7 +6,7 @@ import { useHistory } from "@/lib/storage";
 import { MatchCard, EmptyState, PageTitle } from "@/components/ts-ui";
 
 type DemoState = "normal" | "carregando" | "vazio" | "erro";
-type Search = Filters & { estado?: DemoState };
+type Search = Filters & { estado?: DemoState | undefined };
 
 export const Route = createFileRoute("/")({
   validateSearch: (s: Record<string, unknown>): Search => {
@@ -142,7 +142,7 @@ function DayBtn({ active, onClick, children }: { active: boolean; onClick: () =>
   );
 }
 
-function Select({ label, value, options, onChange }: { label: string; value?: string; options: string[]; onChange: (v?: string) => void }) {
+function Select({ label, value, options, onChange }: { label: string; value?: string | undefined; options: string[]; onChange: (v?: string) => void }) {
   return (
     <label className="text-xs text-muted-foreground">
       {label}
